@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[40373,["/CareerOS--AI-Career-Guidance-/_next/static/chunks/0u~b5k35w1ftj.js","/CareerOS--AI-Career-Guidance-/_next/static/chunks/07xq_gwj2h8-3.js"],"default"]
+3:I[31939,["/CareerOS--AI-Career-Guidance-/_next/static/chunks/0u~b5k35w1ftj.js","/CareerOS--AI-Career-Guidance-/_next/static/chunks/07xq_gwj2h8-3.js"],"default"]
+4:[]
+0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"nLAiYlP9kZ50D73vZORqC"}

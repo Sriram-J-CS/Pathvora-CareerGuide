@@ -1,0 +1,19 @@
+{
+  "name": "careeros-root",
+  "version": "1.0.0",
+  "description": "CareerOS - AI Career Guidance Platform",
+  "private": true,
+  "scripts": {
+    "setup": "npm install && npm run install:client && npm run install:server",
+    "install:client": "npm install --prefix client",
+    "install:server": "npm install --prefix server",
+    "seed": "npm run seed --prefix server",
+    "server": "npm start --prefix server",
+    "client": "npm run dev --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "npm run build --prefix client"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
