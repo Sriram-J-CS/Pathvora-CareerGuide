@@ -62,6 +62,10 @@ export default function Chatbot() {
       }
     } catch (err) {
       console.error(err);
+      setMessages(prev => [
+        ...prev, 
+        { role: 'assistant', content: 'Sandbox Counselor: This is a simulated response. To access the live AI Counselor, please ensure the backend API server is running.' }
+      ]);
     } finally {
       setSending(false);
     }

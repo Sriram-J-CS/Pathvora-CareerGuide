@@ -202,6 +202,16 @@ export default function OnboardingWizard() {
       }
       return data;
     } catch (err) {
+      if (err.message.includes('Failed to fetch') || window.location.hostname.endsWith('github.io') || window.location.port === '') {
+        console.warn('Backend connection failed. Saving step data in sandbox mode.');
+        const storedUser = localStorage.getItem('pathvora_user');
+        if (storedUser) {
+          const userObj = JSON.parse(storedUser);
+          userObj.isOnboarded = (stepNumber === 4);
+          localStorage.setItem('pathvora_user', JSON.stringify(userObj));
+        }
+        return { success: true };
+      }
       setError(err.message);
       return null;
     } finally {
@@ -295,6 +305,18 @@ export default function OnboardingWizard() {
       await refreshUser();
       navigate('/dashboard');
     } catch (err) {
+      if (err.message.includes('Failed to fetch') || window.location.hostname.endsWith('github.io') || window.location.port === '') {
+        console.warn('Backend connection failed. Evaluating quiz in sandbox mode.');
+        const storedUser = localStorage.getItem('pathvora_user');
+        if (storedUser) {
+          const userObj = JSON.parse(storedUser);
+          userObj.isOnboarded = true;
+          localStorage.setItem('pathvora_user', JSON.stringify(userObj));
+        }
+        await refreshUser();
+        navigate('/dashboard');
+        return;
+      }
       setError(err.message);
     } finally {
       setLoading(false);
